@@ -21,7 +21,7 @@ export class Server {
     });
     //
     this.app.listen(this.port, () => {
-      console.log("started 3000");
+      console.log(`running on port: ${this.port}`);
     });
   }
 }
