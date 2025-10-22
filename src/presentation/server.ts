@@ -7,9 +7,14 @@ export class Server {
   constructor(private publicFolder: string, private port: number) {}
   async start() {
     // middlewares
-    // api routes
+    // parse json body
+    this.app.use(express.json());
+    // parse form-url-encoded body
+    this.app.use(express.urlencoded({extended: true}));
+    //
     const routes = AppRoutes.routes;
     this.app.use(routes);
+
     //expose  public folder
     this.app.use(express.static(this.publicFolder));
     // catches all requests
@@ -20,7 +25,6 @@ export class Server {
         __dirname,
         `../../${this.publicFolder}/index.html`
       );
-      console.log(indexPath);
       res.sendFile(indexPath);
     });
     //
