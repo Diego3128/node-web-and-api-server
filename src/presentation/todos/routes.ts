@@ -8,6 +8,15 @@ export class TodoRoutes {
     const todoController = new TodoController();
 
     router.get("/", todoController.getTodos );
+
+    router.get("/:id", todoController.getTodoById);
+
+    router.post("/", todoController.saveNewTodo );
+
+    router.put("/:id", todoController.updateTodoById);
+
+    router.delete("/:id", todoController.deleteTodoById);
+
     return router;
   }
 }
