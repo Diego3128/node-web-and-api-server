@@ -5,19 +5,20 @@ export class Server {
   private app = express();
 
   constructor(private publicFolder: string, private port: number) {}
+
   async start() {
     // middlewares
     // parse json body
     this.app.use(express.json());
     // parse form-url-encoded body
     this.app.use(express.urlencoded({extended: true}));
-    //
+    //REST SERVER
     const routes = AppRoutes.routes;
     this.app.use(routes);
 
     //expose  public folder
     this.app.use(express.static(this.publicFolder));
-    // catches all requests
+    // catches all requests (INDEX.HTML)
     this.app.use((req, res) => {
       // serves the public/index.html file when a route is not found
       console.log({ url: req.url });

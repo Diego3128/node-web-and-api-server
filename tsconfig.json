@@ -13,7 +13,7 @@
     "skipLibCheck": true,
     "moduleResolution": "node16",
     "outDir": "dist",
-    "rootDir": "src"
+    "rootDir": "src",
     // "sourceMap": true
     // "isolatedModules": true,
     // "verbatimModuleSyntax": false
